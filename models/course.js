@@ -20,6 +20,23 @@ class Course {
         }
     }
 
+    // Refact
+    static async update(course) {
+        const courses = await Course.getAll()                   // Get all courses
+
+        const idx = courses.findIndex(c => c.id === course.id)  // Get index of the course
+        courses[idx] = course                                   // Update the course
+        const data = JSON.stringify(courses)                    // Data to JSON
+
+        return await fs.writeFile(                              // Rewrite the course file
+            Course.coursesDataFile,
+            data,
+            (err) => {
+                if (err) { throw err }
+                console.log(`${course.title} course was updated in the system!`);
+            })
+    }
+
     static coursesDataFile = path.join(__dirname, '..', 'data', 'courses.json')
 
 
