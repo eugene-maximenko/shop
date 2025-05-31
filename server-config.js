@@ -11,4 +11,16 @@ function configureTemplateEngine(application) {
     application.set('views', 'views')       // Directory with templates
 }
 
-module.exports = { configureTemplateEngine }
+const PORT = process.env.PORT || 3000
+
+function runServer(app, PORT) {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    })
+}
+
+module.exports = {
+    configureTemplateEngine,
+    PORT,
+    runServer
+}

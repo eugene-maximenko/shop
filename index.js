@@ -1,10 +1,10 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const path = require('path')
-const { configureTemplateEngine } = require('./func')
+const { configureTemplateEngine, PORT, runServer } = require('./server-config')
 
-const app = express()
-configureTemplateEngine(app)
+const app = express()           // Init app
+configureTemplateEngine(app)    // Configure template engine
 
 // Routes
 app.get('/', (req, res) => {
@@ -15,9 +15,4 @@ app.get('/about', (req, res) => {
     res.render('about')
 })
 
-
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+runServer(app, PORT)
