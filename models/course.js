@@ -20,33 +20,39 @@ class Course {
         }
     }
 
+    static coursesDataFile = path.join(__dirname, '..', 'data', 'courses.json')
+
+
     // Refact
     async save() {
-        const courses = await Course.getAll()
-        courses.push(this.toJSON())
 
-        return new Promise((res, rej) => {
+        try {
+            const allCourses = await Course.getAll()     // Get all courses
+            allCourses.push(this.toJSON())               // Update list with the new course
 
-            fs.writeFile(
-                path.join(__dirname, '..', 'data', 'courses.json'),
-                JSON.stringify(courses),
+            const data = JSON.stringify(allCourses)      // Data to JSON
+
+            return await fs.writeFile(Course.coursesDataFile, data, // Rewrite the course file
                 (err) => {
-                    if (err) { rej(err) }
-                    else { res() }
-                }
-            )
-        })
+                    if (err) { throw err }
+                    console.log('New courses is added :)');
+                })
 
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // Refact
-    static getAll() {
+    static async getAll() {
 
         return new Promise((res, rej) => {
 
             fs.readFile(
-                path.join(__dirname, '..', 'data', 'courses.json'),
-                'utf-8', (err, content) => {
+                Course.coursesDataFile,
+                'utf-8',
+                (err, content) => {
                     if (err) { rej(err) }
                     else {
                         res(JSON.parse(content))
@@ -55,7 +61,6 @@ class Course {
 
                 }
             )
-
         })
 
     }
