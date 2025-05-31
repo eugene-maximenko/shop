@@ -4,9 +4,12 @@ const { homeRoutes, addRoutes, coursesRoutes } = require('./routes/index')
 
 const app = express()           // Init app
 configureTemplateEngine(app)    // Configure template engine
+app.use(express.urlencoded({ extended: true }))
+
 
 // Routes
 app.use('/', homeRoutes)
+// Naming?
 app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
 
