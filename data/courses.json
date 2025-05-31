@@ -1,1 +1,14 @@
-[{"title":"Angular 8","price":"12000","img":"https://dac.digital/wp-content/uploads/2023/05/angular-logo-1-optimized.png","id":"79157230-d20a-4b3f-8844-a689e324c6ca"},{"title":"Vue.js","price":"20000","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png","id":"1e31d067-8ab5-4747-8d71-b9402e77723f"}]
+[
+    {
+        "title": "Angular 8",
+        "price": "12000",
+        "img": "https://dac.digital/wp-content/uploads/2023/05/angular-logo-1-optimized.png",
+        "id": "79157230-d20a-4b3f-8844-a689e324c6ca"
+    },
+    {
+        "title": "Vue.js",
+        "price": "20000",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
+        "id": "1e31d067-8ab5-4747-8d71-b9402e77723f"
+    }
+]
