@@ -3,12 +3,17 @@
 
 <body>
     {{>navbar}}
-    <div class="container"></div>
-    {{!-- Hbs we render --}}
-    {{{body}}}
 
-    {{!-- Partial --}}
-    {{>footer}}
+    <div class="container">
+
+        {{!-- Hbs we render --}}
+        {{{body}}}
+
+        {{!-- Partial --}}
+        {{>footer}}
+
+    </div>
+
 </body>
 
 </html>
