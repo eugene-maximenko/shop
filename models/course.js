@@ -3,13 +3,14 @@ const fs = require('fs')
 const path = require('path')
 
 class Course {
-    constructor(title, price, img) {
+    constructor({ title, price, img }) {
         this.title = title
         this.price = price
         this.img = img
         this.id = uuid()
     }
 
+    // Refact
     toJSON() {
         return {
             title: this.title,
@@ -19,6 +20,7 @@ class Course {
         }
     }
 
+    // Refact
     async save() {
         const courses = await Course.getAll()
         courses.push(this.toJSON())
@@ -31,12 +33,10 @@ class Course {
                 (err) => {
                     if (err) { rej(err) }
                     else { res() }
-
                 }
             )
         })
 
-        console.log('Courses', courses);
     }
 
     // Refact
