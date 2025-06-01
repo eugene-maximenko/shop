@@ -1,5 +1,6 @@
 const exphbs = require('express-handlebars')
 const express = require('express')
+const path = require('path')
 
 function configureTemplateEngine(app) {
     const hbs = exphbs.create({
@@ -11,7 +12,7 @@ function configureTemplateEngine(app) {
     app.set('view engine', 'hbs')   // Use the engine
     app.set('views', 'views')       // Directory with templates
 
-    app.use(express.static('public')) // Make files in the "public" folder accessible via browser (e.g., CSS, images, JS)
+    app.use(express.static(path.join(__dirname, 'public'))) // Make files in the "public" folder accessible via browser (e.g., CSS, images, JS)
 }
 
 const PORT = process.env.PORT || 3000
