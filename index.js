@@ -12,6 +12,6 @@ app.use('/', homeRoutes)
 // Naming?
 app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
-app.use('/card', cardRoutes)
+app.use('/cart', cardRoutes)
 
 runServer(app, PORT)

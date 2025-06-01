@@ -1,0 +1,12 @@
+{
+    "courses": [
+        {
+            "title": "Angular 8",
+            "price": "20000",
+            "img": "https://dac.digital/wp-content/uploads/2023/05/angular-logo-1-optimized.png",
+            "id": "79157230-d20a-4b3f-8844-a689e324c6ca",
+            "count": 2
+        }
+    ],
+    "price": 40000
+}
