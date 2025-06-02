@@ -28,6 +28,24 @@ class Cart {
 
         return JSON.parse(content)
     }
+
+    static async remove(id) {
+        const cart = await Cart.fetch()
+
+        const idx = cart.courses.findIndex(c => c.id === id)
+        const course = cart.courses[idx]
+
+        if (course.count === 1) {
+            cart.courses = cart.courses.filter(c => c.id !== id)
+        } else {
+            course.count--
+        }
+
+        cart.price -= +course.price
+
+        await fs.promises.writeFile(p, JSON.stringify(cart))
+        return await Cart.fetch()
+    }
 }
 
 module.exports = Cart
